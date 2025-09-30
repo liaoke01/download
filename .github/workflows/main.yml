@@ -21,8 +21,8 @@ jobs:
           aria2c -s8 -x8 ${{github.event.inputs.download}}
           tree
           
-    - name: Release
-      uses: softprops/action-gh-release@master
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@main
       with:
-          tag_name: ${{env.DATE}}
-          files: ./*
+          name: ${{env.DATE}}
+          path: ./*
